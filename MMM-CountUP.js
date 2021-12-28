@@ -13,7 +13,8 @@ Module.register("MMM-CountUP", {
     date: '2020-03-20', // YYYY-MM-DD
     time: '00:00:00', // HH:MM:SS
     showFullDate : false,
-    showOnlyWeeks: false
+    showOnlyWeeks: false,
+    title: 'Title'
   },
 
   getStyles: function() {
@@ -43,6 +44,11 @@ Module.register("MMM-CountUP", {
 
     var wrapper = document.createElement("table")
     wrapper.className = 'countUP'
+
+    var titleWrapper = document.createElement("caption")
+    titleWrapper.innerHTML = this.config.title
+    titleWrapper.className = 'title'
+    wrapper.appendChild(titleWrapper)
 
     var infoRow = document.createElement("tr")
 
