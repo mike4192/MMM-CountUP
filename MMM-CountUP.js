@@ -115,6 +115,13 @@ Module.register("MMM-CountUP", {
       monthsWrapper.className += ' none'
       textMonthsWrapper.className += ' none'
     }
+
+    if (this.config.showFullDate) {
+      monthsWrapper.className += ' none'
+      textMonthsWrapper.className += ' none'
+      weeksWrapper.className += ' none'
+      textWeeksWrapper.className += ' none'
+    }
     
     if (this.config.showOnlyWeeks) { // hide hours, minutes and seconds, then finish
       hoursWrapper.className += ' none'
@@ -156,6 +163,9 @@ Module.register("MMM-CountUP", {
       delete structure['year']
       delete structure['month']
       delete structure['week']
+    } else {
+      delete structure['week']
+      delete structure['month']
     }
     for(let key in structure) {
       res[key] = Math.floor(delta / structure[key])
